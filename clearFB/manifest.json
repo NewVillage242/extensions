@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Facebook Cleaner",
+    "version": "1.0",
+    "description": "Removes elements with the x1fey0fg class on Facebook.",
+    "permissions": [
+      "activeTab",
+      "webNavigation"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["*://*.facebook.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+      }
+    ]
+    
+  }
+  
