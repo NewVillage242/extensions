@@ -18,7 +18,13 @@ function removeElements() {
       }
     })
     
-    
+
+    //Remove youtube short video and thread-like contents
+    const short_elements = document.querySelectorAll('[modern-vwt-style][modern-vwt-style-v2]');
+    short_elements.forEach(element => {
+      element.style.display='none';
+      console.log("block short video or thread-lik contents.")
+    })
   }
   
   // Run once the DOM is fully loaded
