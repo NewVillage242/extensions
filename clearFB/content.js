@@ -18,6 +18,8 @@ function removeElements() {
       }
     })
     
+    // Remove youtube sleep counter
+    document.querySelector(".ytp-settings-menu").querySelector('div').querySelector('div').querySelectorAll('div')[14].style.display = 'none'
 
     //Remove youtube short video and thread-like contents
     const short_elements = document.querySelectorAll('[modern-vwt-style][modern-vwt-style-v2]');
