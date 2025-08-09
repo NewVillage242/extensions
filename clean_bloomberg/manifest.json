@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Bloomberg UX Improvement",
+    "version": "1.0",
+    "description": "Improve reading UX while scrolling UP",
+    "permissions": [
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://www.bloomberg.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ]
+    
+}
+  
