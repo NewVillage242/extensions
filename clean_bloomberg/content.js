@@ -24,6 +24,7 @@ function addHome() {
     const link = document.createElement('a');
     link.href = '/';
     link.textContent = 'B';
+    link.classList.add("bb-that-header__link");
     link.style.color = 'white'; // example styling
 
     // Insert at the beginning
@@ -31,5 +32,30 @@ function addHome() {
   }
 }
 
+function copyText() {
+  const context = Array.from(
+    document.querySelectorAll(".ArticleBodyText_articleBodyContent__17wqE")
+  )
+  .filter(p => !p.textContent.includes("Read More"))
+  .map(p=>p.textContent).join("\n\n");
+
+  navigator.clipboard.writeText(context)
+    .then()
+    .catch(err => console.error("Error copying: ", err));
+}
+
+function addCopy() {
+  const container = document.querySelector('.bb-that-header.bb-that--container');
+  if (container) {
+    const button = document.createElement('button');
+    button.textContent = 'Copy';
+    button.classList.add("bb-that-header__link");
+    button.style.color = "white";
+    button.onclick = copyText();
+    container.prepend(button);
+  }
+}
+
 removeElements();
 addHome(); 
+addCopy();

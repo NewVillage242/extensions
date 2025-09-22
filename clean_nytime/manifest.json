@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "NY Time UX Improvement",
+    "version": "1.0",
+    "description": "Block the suggestion of upgrading to family prgram.",
+    "permissions": [
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://www.nytimes.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ]
+    
+}
+  
