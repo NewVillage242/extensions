@@ -49,6 +49,32 @@ function removeElements() {
         console.log("hidden Instagram Reels tab");
       });
     
+    // YouTube: Hide Shorts links and content
+    // Hide Shorts shelf/sections and individual Short links on homepage and search
+    document.querySelectorAll('a[href*="/shorts/"]').forEach(el => {
+      let container = el.closest('ytd-rich-item-renderer, ytd-video-renderer, ytd-grid-video-renderer, ytd-reel-shelf-renderer, ytd-rich-section-renderer, ytd-mini-guide-entry-renderer, ytd-guide-entry-renderer');
+      if (container) {
+        container.style.display = 'none';
+      }
+    });
+
+    // Hide the Shorts tab in the sidebar navigation
+    document.querySelectorAll('a[title="Shorts"]').forEach(el => {
+      let container = el.closest('ytd-mini-guide-entry-renderer, ytd-guide-entry-renderer');
+      if (container) {
+        container.style.display = 'none';
+        console.log("hidden YouTube Shorts tab");
+      }
+    });
+
+    // Redirect if user lands on a Shorts page
+    if (window.location.pathname.startsWith('/shorts/')) {
+      const videoId = window.location.pathname.split('/shorts/')[1];
+      if (videoId) {
+        window.location.replace('/watch?v=' + videoId);
+      }
+    }
+
        // Hide the Explore tab in the navigation
       document.querySelectorAll('a[href="/explore/"]').forEach(el => {
         let parent = el;
